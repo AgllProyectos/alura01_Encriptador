@@ -18,3 +18,12 @@ No se permite acentuación de palabras
 Solo letras minusculas
 No se permite acentuación de palabras   
 */
+
+/*
+Estrategia de resolución: 
+Hacer las funciones necesarias para que ante cada ingreso de palabras pueda recorrerse
+letra por letra y generar una salida que modifique las letras según el criterio propuesto.
+
+Etapas:
+1- Obtener el text
+*/
