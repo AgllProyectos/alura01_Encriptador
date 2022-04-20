@@ -35,6 +35,7 @@ var arrayEncriptacion = crearArrayEncriptacion();
 var botonEncriptar = document.querySelector("#btn-encriptar");
 var botonDesencriptar = document.querySelector("#btn-desencriptar");
 var botonCopiar = document.querySelector("#btn-copy");
+var botonBorrar = document.querySelector("#btn-borrar");
 
 
 
@@ -72,11 +73,21 @@ botonCopiar.addEventListener("click",function(event){
     event.preventDefault();
     var mensaje = document.querySelector("#msg");
     console.log(mensaje.value)
+    var texto = mensaje.value;
     mensaje.select();
     document.execCommand("copy");
+    borrarMensaje();
+    recuadroMensaje(texto);
+
 
 })
 
+botonBorrar.addEventListener("click",function(event){
+    event.preventDefault();
+    borrarMensaje();
+
+
+})
 
 //Array con las reglas de encriptación
 function crearArrayEncriptacion(){
@@ -118,6 +129,12 @@ function recuadroMensaje(texto){
     var mensaje = document.querySelector("#msg");
     mensaje.value = texto;
     console.log(mensaje.value)
+
+}
+
+function borrarMensaje(){
+    var mensaje = document.querySelector("#msg");
+    mensaje.value = "";
 
 }
 
