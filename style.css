@@ -9,6 +9,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-image: url("https://www.ctisoluciones.com/sites/default/files/inline-images/tipos-de-sistemas-de-encriptacion-de-datos.jpg");
 }
+  
 
 .main {
   width: 80vw;
@@ -77,3 +78,21 @@ body {
 .label {
   font-weight: bold;
 }
+
+
+
+
+
+/*Código no utilizado*/
+/* .fondo {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url("https://www.ctisoluciones.com/sites/default/files/inline-images/tipos-de-sistemas-de-encriptacion-de-datos.jpg");
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.50;
+} */

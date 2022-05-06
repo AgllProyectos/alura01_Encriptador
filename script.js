@@ -36,43 +36,61 @@ var botonEncriptar = document.querySelector("#btn-encriptar");
 var botonDesencriptar = document.querySelector("#btn-desencriptar");
 var botonCopiar = document.querySelector("#btn-copy");
 var botonBorrar = document.querySelector("#btn-borrar");
+var entradaTexto = document.querySelector(".text-input");
+
+
+entradaTexto.addEventListener("input",function(event){
+
+    //    var caracteres = /[^a-z]/gi; // g=global , i=case-insensitive
+    var caracteres = 'abcdefghijklmnñopqrstuvwxyz null';
+
+    var expresion = new RegExp(event.data,"g");
+    if(!expresion.test(caracteres)){
+        //Detecta y borra los caracteres no aceptados
+        this.value = this.value.replace(event.data,'');
+        alert('Solo se permiten letras minúsculas sin acentos');
+        //instead of an alert, i would use a less intrusive fadeIn() message
+    }
+    // this.value = this.value.toLowerCase();
+
+})
 
 
 
 botonEncriptar.addEventListener("click",function(event){
     event.preventDefault();
     var mensaje = document.querySelector("#input-texto");
-    console.log(mensaje.value)
+    //console.log(mensaje.value)
     var texto = mensaje.value
 
     var textoEncriptado = encriptarOdesencriptar(texto,0);
     recuadroMensaje(textoEncriptado);
 
-    console.log(textoEncriptado);
+    //console.log(textoEncriptado);
     var textoDesencriptado = encriptarOdesencriptar(textoEncriptado,1);
-    console.log(textoDesencriptado);
+    //console.log(textoDesencriptado);
 });
 
 
 botonDesencriptar.addEventListener("click",function(event){
     event.preventDefault();
     var mensaje = document.querySelector("#input-texto");
-    console.log(mensaje.value)
+    //console.log(mensaje.value)
     var texto = mensaje.value
     
     var textoDesencriptado = encriptarOdesencriptar(texto,1);
     recuadroMensaje(textoDesencriptado);
 
-    console.log(textoDesencriptado);
+    //console.log(textoDesencriptado);
     var textoEncriptado = encriptarOdesencriptar(textoDesencriptado,0);
-    console.log(textoEncriptado);
+    //console.log(textoEncriptado);
 
 });
 
 botonCopiar.addEventListener("click",function(event){
     event.preventDefault();
     var mensaje = document.querySelector("#msg");
-    console.log(mensaje.value)
+    //console.log(mensaje.value)
     var texto = mensaje.value;
     mensaje.select();
     document.execCommand("copy");
@@ -128,7 +146,7 @@ function encriptarOdesencriptar(texto,accion){
 function recuadroMensaje(texto){
     var mensaje = document.querySelector("#msg");
     mensaje.value = texto;
-    console.log(mensaje.value)
+    //console.log(mensaje.value)
 
 }
 
