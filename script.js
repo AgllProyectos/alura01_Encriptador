@@ -36,25 +36,28 @@ var botonEncriptar = document.querySelector("#btn-encriptar");
 var botonDesencriptar = document.querySelector("#btn-desencriptar");
 var botonCopiar = document.querySelector("#btn-copy");
 var botonBorrar = document.querySelector("#btn-borrar");
-var entradaTexto = document.querySelector(".text-input");
+var entradaTexto = document.querySelectorAll(".text-input");
 
 
-entradaTexto.addEventListener("input",function(event){
+//For que recorre ambos inputs y aplica la validación de texto
+for (var i=0;i<entradaTexto.length;i++){
+    entradaTexto[i].addEventListener("input",function(event){
+        //funcioón para validar la entrada de datos
+        // validacionInput(event,entradaTexto[i]);
+            //    var caracteres = /[^a-z]/gi; // g=global , i=case-insensitive
+        var caracteres = 'abcdefghijklmnñopqrstuvwxyz null';
 
-    //    var caracteres = /[^a-z]/gi; // g=global , i=case-insensitive
-    var caracteres = 'abcdefghijklmnñopqrstuvwxyz null';
-
-    var expresion = new RegExp(event.data,"g");
-    if(!expresion.test(caracteres)){
-        //Detecta y borra los caracteres no aceptados
-        this.value = this.value.replace(event.data,'');
-        alert('Solo se permiten letras minúsculas sin acentos');
-        //instead of an alert, i would use a less intrusive fadeIn() message
-    }
-    // this.value = this.value.toLowerCase();
-
-})
-
+        var expresion = new RegExp(event.data,"g");
+        if(!expresion.test(caracteres)){
+            //Detecta y borra los caracteres no aceptados
+            this.value = this.value.replace(event.data,'');
+            alert('Solo se permiten letras minúsculas sin acentos');
+            //instead of an alert, i would use a less intrusive fadeIn() message
+        }
+        // this.value = this.value.toLowerCase();
+   
+    });
+}
 
 
 botonEncriptar.addEventListener("click",function(event){
@@ -106,6 +109,10 @@ botonBorrar.addEventListener("click",function(event){
 
 
 })
+
+
+
+
 
 //Array con las reglas de encriptación
 function crearArrayEncriptacion(){
